@@ -33,16 +33,11 @@ module.exports = {
       },
       {
         test: /\.(gif|png|jpe?g|avif)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "assets/images/",
-            },
-          },
-        ],
-      },
+        type: "asset/resource",
+        generator: {
+          filename: "assets/images/[name][ext]",
+        },
+      }      
       {
         test: /\.html$/,
         use: ["html-loader"],
